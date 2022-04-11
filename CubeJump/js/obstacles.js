@@ -26,8 +26,30 @@ function Spawn(){
 
     //Démarre le spawn d'ennemis en haut
     active = setInterval(function(){
-        if (perdu)
+        if (perdu) {
+            //Meilleurs scores
+
+            if (score > score3) {
+                localStorage.removeItem('score3');
+                localStorage.setItem('score3', score);
+                score3 = localStorage.getItem('score3');
+                return;
+            }
+            else if (score > score2) {
+                localStorage.removeItem('score2');
+                localStorage.setItem('score2', score);
+                score2 = localStorage.getItem('score2');
+                return;
+            }
+            else if (score > score1) {
+                localStorage.removeItem('score1');
+                localStorage.setItem('score1', score);
+                score1 = localStorage.getItem('score1');
+                return;
+            }
             return;
+        }
+           
         var id = CreateObstacle("haut");
         Move(id);           
     }, speed);
@@ -72,26 +94,7 @@ async function Move(id){
             $("#jeu").hide();
             $("#perdu").show();
             document.getElementById(id).remove();
-            document.getElementById("scorePerdu").innerHTML = "Votre score est de " + score + " points !";
-
-            //Meilleurs scores
-            if (score > score1){
-                localStorage.removeItem('score1');
-                localStorage.setItem('score1', score);
-            }                
-            else if (score > score2){
-                localStorage.removeItem('score2');
-                localStorage.setItem('score2', score);
-            }
-            else if (score > score3){
-                localStorage.removeItem('score3');
-                localStorage.setItem('score3', score);
-            }
-
-            score1 = localStorage.getItem('score1');
-            score2 = localStorage.getItem('score2');
-            score3 = localStorage.getItem('score3');
-
+            document.getElementById("scorePerdu").innerHTML = "Votre score est de " + score + " points !";     
             return;
         }            
 
@@ -102,7 +105,7 @@ async function Move(id){
 
         margin -= 10;
         $("#" + id).css("margin-left", margin + "px"); 
-        //Collision(id);               
+        Collision(id);               
     }
     //Gestion du score
     if (id.indexOf("carreBas") != -1)

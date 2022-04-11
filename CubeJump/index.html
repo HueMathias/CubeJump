@@ -2,6 +2,7 @@
     <html>
         <head>
             <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script src="js/affichage.js"></script>
             <script src="js/variables.js"></script>
             <script src="js/perso.js"></script>
             <script src="js/obstacles.js"></script>
@@ -22,6 +23,10 @@
                         $("#menu").addClass("posMenu");
                     }, 2600);
 
+                    //Centrer des éléments
+                    $("#menuBtns").center();
+                    $("#lesScores").center();
+                    $(".center").center();
                 });
             </script>
         </head>           
@@ -34,31 +39,32 @@
                     <input type="button" id="btnJouer" value="Jouer" onclick="Spawn();" /> <br /><br />
                     <input type="button" value="Personnaliser" onclick="Personnaliser(1)" />
                     <input type="button" value="Informations" onclick="Infos()" /> <br /><br />
-                    <input type="button" id="btnScores" value="Meilleurs scores" onclick="AfficherScores()" /> 
+                    <input type="button" id="btnScores" value="Meilleurs scores" onclick="AfficherScores()" />
                 </div>                            
             </div>
 
-            <div id="personnaliser" class="posMenu">
+            <div id="personnaliser">
                 <h1>Choix des personnages</h1>
-                <table>
-                    <tr><td colspan="3"><p>Vous</p></td></tr>
-                    <tr>
-                        <td><img class="flecheGauche" src="img/fleche_g.png" onclick="SwitchPerso(1)" /></td>
-                        <td><div id="persoChoix"></div></td>
-                        <td><img class="flecheDroite" src="img/fleche_d.png" onclick="SwitchPerso(2)" /></td>
-                    </tr>
-                </table>
-                <br />
-                <table>
-                    <tr><td colspan="3"><p>Ennemis</p></td></tr>
-                    <tr>
-                        <td><img class="flecheGauche" src="img/fleche_g.png" onclick="SwitchEnnemi(1)" /></td>
-                        <td><div id="ennemiChoix"></div></td>
-                        <td><img class="flecheDroite" src="img/fleche_d.png" onclick="SwitchEnnemi(2)" /></td>
-                    </tr>
-                </table>   
-                <br />
-                <input type="button" value="Valider" onclick="ValiderPerso(perdu)" />            
+                <div id="itemsPerso">
+                    <div class="alignItemsPerso">
+                        <p>Vous</p>
+                        <div>
+                            <img class="flecheGauche left" src="img/fleche_g.png" onclick="SwitchPerso(1)" />
+                            <div id="persoChoix" class="left"></div>
+                            <img class="flecheDroite" src="img/fleche_d.png" onclick="SwitchPerso(2)" />
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="alignItemsPerso">
+                        <p>Vos ennemis</p>
+                        <img class="flecheGauche left" src="img/fleche_g.png" onclick="SwitchEnnemi(1)" />
+                        <div id="ennemiChoix" class="left"></div>               
+                        <img class="flecheDroite" src="img/fleche_d.png" onclick="SwitchEnnemi(2)" />
+                    </div>
+                    <br />
+                    <input type="button" value="Valider" onclick="ValiderPerso(perdu)" style="margin-left:44%!important;" />
+                </div>
             </div>
 
             <div id="infos">
@@ -78,11 +84,13 @@
             <div id="tableauScores">
                 <h1>Meilleurs scores</h1>
                 <div id="meilleursScores">
-                    <input type="text" id="score1" disabled value="" /><br /><br />
-                    <input type="text" id="score2" disabled value="" /><br /><br />
-                    <input type="text" id="score3" disabled value="" /><br /><br />
-                </div>                
-                <input type="button" value="Retour" onclick="Retour()" /> 
+                    <div id="lesScores">
+                        <input type="text" id="score1" disabled value="" /><br /><br />
+                        <input type="text" id="score2" disabled value="" /><br /><br />
+                        <input type="text" id="score3" disabled value="" /><br /><br />
+                        <input type="button" value="Retour" onclick="Retour()" />
+                    </div>
+                </div>                     
             </div>
 
             <div id="perdu">

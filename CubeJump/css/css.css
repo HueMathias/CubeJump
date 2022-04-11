@@ -1,19 +1,25 @@
 /* -- Générales -- */
-.posMenu {margin-left: 25%; margin-top:10%;}
-h1{font-size: 72px;text-shadow: 1px 1px 8px white;}
+.posMenu {width:100%; text-align:center;}
+h1{font-size: 72px;text-shadow: 1px 1px 8px white;margin:0;}
 #menu input, #personnaliser input, #infos input, #perdu input, #tableauScores input{font-family: Impact, sans-serif;font-size:48px;text-align: center;padding-left: 10px;padding-right: 10px;border:none;}
 #menu input:hover, #personnaliser input:hover, #infos input:hover, #perdu input:hover, #tableauScores input[type="button"]:hover{cursor: pointer;background-color: rgb(204, 204, 204);border: none;}
+.left{float:left;}
+
 /* -- Menu -- */
-#menuBtns{margin-left:7%;}
-#btnJouer{margin-left: 22%;}
-#btnScores{margin-left:10%;}
+#menuBtns {width: 100%;margin-top:3%;}
 
 /* -- Personnaliser -- */
-#personnaliser img {width: 60px;height: 60px;padding: 0px 20px;}
+#personnaliser h1{text-align:center;}
+#itemsPerso{width:100%;margin-top:3%;}
+#itemsPerso p {margin-left:12%!important;}
+.alignItemsPerso{margin-left:40%;}
+#personnaliser img {
+    width: 60px;
+    height: 60px;
+    padding: 0px 20px;
+}
 #personnaliser img:hover{-webkit-transform: scale(1.3);transform: scale(1.3);}
-#personnaliser p {font-size: 28px; color:white;text-align: center;}
-#personnaliser table {margin-left: 17%;}
-#personnaliser input {margin-left: 22%;}
+#personnaliser p {font-size: 28px; color:white; margin:0;}
 
 #persoChoix{height: 50px; width: 50px; border: solid red 8px;}
 #ennemiChoix {height: 50px; width: 50px; border: solid white 8px; background-color:white;}
@@ -32,14 +38,12 @@ h1{font-size: 72px;text-shadow: 1px 1px 8px white;}
 #infos {text-align: center;}
 #infos p {color :white;font-size: 26px;}
 #infos h2{text-shadow: 1px 1px 8px white;font-size: 32px;}
-#score2{font-size: 35px!important;margin-left: 6.5%;}
-#score3{font-size: 32px!important;margin-left: 8%;}
 
 /* -- Meilleurs scores -- */
 /* Voir dans partie Jeu */
 #tableauScores h1{text-align: center;}
-#tableauScores input[type="button"] {margin-left:46.3%;}   
-#meilleursScores{margin-left: 35%;}
+#meilleursScores{text-align:center;width:100%;}
+#lesScores{margin-top:3%;}
 
 /* -- Perdu -- */
 #perdu{text-align: center;}
@@ -47,7 +51,7 @@ h1{font-size: 72px;text-shadow: 1px 1px 8px white;}
 #perdu h2{color: white;text-decoration: underline;font-size:26px;font-weight: normal;}
 
 /* -- Jeu -- */
-#score, #score1, #score2, #score3 {background-color: transparent; border:none;font-size: 38px; color:rgb(105, 124, 141);}
+#score, #score1, #score2, #score3 {background-color: transparent; border:none;font-size: 38px; color:rgb(156, 189, 219);}
 #scoreText{font-size:38px; color:rgb(105, 124, 141);}
 #affichageScore{margin-left: 44%;}
 

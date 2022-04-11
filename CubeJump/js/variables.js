@@ -35,7 +35,13 @@ setInterval(function(){
 }, 1900);
 
 var score = 0;
+var score1 = 0;
+var score2 = 0;
+var score3 = 0;
 
-var score1 = localStorage.getItem('score1');
-var score2 = localStorage.getItem('score2');
-var score3 = localStorage.getItem('score3');
+if (localStorage.getItem('score1') != null)
+    score1 = localStorage.getItem('score1');
+if (localStorage.getItem('score2') != null)
+    score2 = localStorage.getItem('score2');
+if (localStorage.getItem('score3') != null)
+    score3 = localStorage.getItem('score3');
