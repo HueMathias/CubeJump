@@ -1,0 +1,28 @@
+#chargement {
+    position: absolute;
+    animation-duration: 2.5s;
+    animation-name: load;
+    height: 20px;
+    margin-left: -10px;
+    margin-top: 23%;
+    border-top: 10px solid transparent;
+  }
+  
+  @keyframes load {
+    from {
+      width: 0%;
+      border-top:10px solid rgb(0, 0, 0);
+    }
+    30%{
+        border-top:10px solid rgb(49, 49, 49);
+    }
+    50%{
+        border-top:10px solid rgb(88, 88, 88);
+    }
+  
+    to {
+      width: 105%;
+      border-top:10px solid rgb(255, 255, 255);
+    }
+}
+

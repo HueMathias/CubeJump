@@ -1,0 +1,107 @@
+<doctype html>
+    <html>
+        <head>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script src="js/variables.js"></script>
+            <script src="js/perso.js"></script>
+            <script src="js/obstacles.js"></script>
+            <script src="js/menu.js"></script>
+            <link rel="stylesheet" type="text/css" href="css/css.css" />
+            <link rel="stylesheet" type="text/css" href="css/animations.css" />
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $("#jeu").hide();
+                    $("#menu").css("visibility", "hidden");
+                    $("#perdu").hide();
+                    $("#personnaliser").hide();
+                    $("#infos").hide();
+                    $("#tableauScores").hide();
+
+                    setTimeout(function(){
+                        $("#menu").css("visibility", "");
+                        $("#menu").addClass("posMenu");
+                    }, 2600);
+
+                });
+            </script>
+        </head>           
+
+        <body>
+            <div id="chargement"></div>
+            <div id="menu">                
+                <h1>Bienvenue sur Cube Jump</h1>
+                <div id="menuBtns">
+                    <input type="button" id="btnJouer" value="Jouer" onclick="Spawn();" /> <br /><br />
+                    <input type="button" value="Personnaliser" onclick="Personnaliser(1)" />
+                    <input type="button" value="Informations" onclick="Infos()" /> <br /><br />
+                    <input type="button" id="btnScores" value="Meilleurs scores" onclick="AfficherScores()" /> 
+                </div>                            
+            </div>
+
+            <div id="personnaliser" class="posMenu">
+                <h1>Choix des personnages</h1>
+                <table>
+                    <tr><td colspan="3"><p>Vous</p></td></tr>
+                    <tr>
+                        <td><img class="flecheGauche" src="img/fleche_g.png" onclick="SwitchPerso(1)" /></td>
+                        <td><div id="persoChoix"></div></td>
+                        <td><img class="flecheDroite" src="img/fleche_d.png" onclick="SwitchPerso(2)" /></td>
+                    </tr>
+                </table>
+                <br />
+                <table>
+                    <tr><td colspan="3"><p>Ennemis</p></td></tr>
+                    <tr>
+                        <td><img class="flecheGauche" src="img/fleche_g.png" onclick="SwitchEnnemi(1)" /></td>
+                        <td><div id="ennemiChoix"></div></td>
+                        <td><img class="flecheDroite" src="img/fleche_d.png" onclick="SwitchEnnemi(2)" /></td>
+                    </tr>
+                </table>   
+                <br />
+                <input type="button" value="Valider" onclick="ValiderPerso(perdu)" />            
+            </div>
+
+            <div id="infos">
+                <h1>Informations</h1>
+                <p>
+                    Le but du jeu est simple, il suffit d'esquiver les cubes qui arrivent en boucle.<br/>
+                    Pour cela rien de plus simple vous devez sauter au bon moment mais attention la difficulté augmente car les cubes
+                    arrivent de plus en plus vite !
+                </p>
+                <h2>Les touches</h2>
+                <p>ESPACE : sauter</p>
+                <p>FLECHE HAUT : Se déplacer en haut</p>
+                <p>FLECHE BAS : Se déplacer en bas</p>
+                <input type="button" value="Retour" onclick="Retour()" /> 
+            </div>
+
+            <div id="tableauScores">
+                <h1>Meilleurs scores</h1>
+                <div id="meilleursScores">
+                    <input type="text" id="score1" disabled value="" /><br /><br />
+                    <input type="text" id="score2" disabled value="" /><br /><br />
+                    <input type="text" id="score3" disabled value="" /><br /><br />
+                </div>                
+                <input type="button" value="Retour" onclick="Retour()" /> 
+            </div>
+
+            <div id="perdu">
+                <h1>Vous avez perdu</h1>
+                <h2 id="scorePerdu"></h2>
+                <input type="button" value="Rejouer" onclick="Spawn();" /><br/><br/>         
+                <input type="button" value="Personnaliser" onclick="Personnaliser()" /> <br/><br/>           
+                <input type="button" value="Retour" onclick="Retour()" /><br/><br/>           
+                <input type="button" value="Quitter" onclick="window.close()" />            
+            </div>
+
+            <div id="jeu">
+                <div id="affichageScore">
+                    <span id="scoreText">SCORE</span>&nbsp;&nbsp;<input type="text" id="score" disabled value="" />
+                </div>
+                
+                <div id="trait"><hr /></div>
+                <div id="perso"></div>
+            </div>
+        </body>
+    </html>
+</doctype>
