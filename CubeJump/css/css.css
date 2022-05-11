@@ -59,6 +59,8 @@ h1{font-size: 72px;text-shadow: 1px 1px 8px white;margin:0;}
 /* -- Décor -- */
 /*body {background-image: url("../img/background.jpg");overflow-x: hidden;overflow-y: hidden;}*/
 body {background: linear-gradient(rgb(29, 29, 29) 50%, rgb(221, 221, 221));overflow-x: hidden;overflow-y: hidden;font-family: Impact, sans-serif;}
+
+.back {background-image: url("../img/fond.png")!important; background-image: no-repeat!important;background-size: 100%!important;}
 #trait{width: 150%;background-color: white; height: 6px;margin-top:25%;margin-left: -100px;}
 /* -- -- -- */
 

@@ -13,6 +13,7 @@ function Spawn(){
         score = 0;
     }        
 
+    $("body").addClass('back');
     document.getElementById("score").value = score;
     perdu = false;
     //Gère class perso + ennemis
@@ -70,6 +71,7 @@ async function Move(id){
     while (margin >= -100){
         if (perdu){
             //FIN DE PARTIE
+            $("body").removeClass('back');
             $("#jeu").hide();
             $("#perdu").show();
             document.getElementById(id).remove();
