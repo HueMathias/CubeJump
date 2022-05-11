@@ -73,25 +73,7 @@ async function Move(id){
             $("#jeu").hide();
             $("#perdu").show();
             document.getElementById(id).remove();
-            document.getElementById("scorePerdu").innerHTML = "Votre score est de " + score + " points !";     
-
-            //Meilleurs scores
-            if (score > score3 && score < score2){
-                localStorage.removeItem('score3');
-                localStorage.setItem('score3', score);
-                score1 = localStorage.getItem('score3');
-            }                
-            else if (score > score2 && score < score1){
-                localStorage.removeItem('score2');
-                localStorage.setItem('score2', score);
-                score2 = localStorage.getItem('score2');
-            }
-            else if (score > score1){
-                localStorage.removeItem('score1');
-                localStorage.setItem('score1', score);
-                score3 = localStorage.getItem('score1');                
-            }
-            return;
+            document.getElementById("scorePerdu").innerHTML = "Votre score est de " + score + " points !";   
         }            
 
         if (id.indexOf("carreBas") != -1)
@@ -126,4 +108,30 @@ function Collision(id){
 
     if (((pD <= idD && pD >= idG) || (pG >= idG && pG <= idD)) && pB >= idH && pH <= idB)
         perdu = true;
+}
+
+function MeilleursScores(){
+    //Meilleurs scores
+    if (score2 == 0 && score3 != 0 && score > score3){
+        localStorage.setItem('score2', score);
+    }
+    else if (score > score3 && (score < score2 || score2 == 0)){
+        localStorage.removeItem('score3');  
+        localStorage.setItem('score3', score);
+    }
+    else if (score1 == 0 && score > score2){
+        localStorage.setItem('score1', score);
+    }
+    else if (score > score2 && (score < score1 || score1 == 0)){
+        localStorage.removeItem('score2');
+        localStorage.setItem('score2', score);
+    }
+    else if (score > score1){
+        localStorage.removeItem('score1');
+        localStorage.setItem('score1', score);
+    }
+
+    score3 = localStorage.getItem('score3');
+    score2 = localStorage.getItem('score2');
+    score1 = localStorage.getItem('score1'); 
 }

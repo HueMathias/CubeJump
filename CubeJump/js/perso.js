@@ -3,8 +3,6 @@ function delay(time){
 }
 
 $(document).keydown(async function(e){
-
-    console.log(e.which);       
     if (saut)
         return;
 

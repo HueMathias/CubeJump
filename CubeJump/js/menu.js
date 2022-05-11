@@ -61,7 +61,7 @@ function Retour(){
     $("#infos").hide();
     $("#tableauScores").hide();
 
-    $("#menu").show();    
+    $("#menu").show();        
 }
 
 function Infos(){
