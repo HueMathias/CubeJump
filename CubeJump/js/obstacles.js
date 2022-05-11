@@ -26,29 +26,8 @@ function Spawn(){
 
     //Démarre le spawn d'ennemis en haut
     active = setInterval(function(){
-        if (perdu) {
-            //Meilleurs scores
-
-            if (score > score3) {
-                localStorage.removeItem('score3');
-                localStorage.setItem('score3', score);
-                score3 = localStorage.getItem('score3');
-                return;
-            }
-            else if (score > score2) {
-                localStorage.removeItem('score2');
-                localStorage.setItem('score2', score);
-                score2 = localStorage.getItem('score2');
-                return;
-            }
-            else if (score > score1) {
-                localStorage.removeItem('score1');
-                localStorage.setItem('score1', score);
-                score1 = localStorage.getItem('score1');
-                return;
-            }
+        if (perdu) 
             return;
-        }
            
         var id = CreateObstacle("haut");
         Move(id);           
@@ -95,6 +74,23 @@ async function Move(id){
             $("#perdu").show();
             document.getElementById(id).remove();
             document.getElementById("scorePerdu").innerHTML = "Votre score est de " + score + " points !";     
+
+            //Meilleurs scores
+            if (score > score3 && score < score2){
+                localStorage.removeItem('score3');
+                localStorage.setItem('score3', score);
+                score1 = localStorage.getItem('score3');
+            }                
+            else if (score > score2 && score < score1){
+                localStorage.removeItem('score2');
+                localStorage.setItem('score2', score);
+                score2 = localStorage.getItem('score2');
+            }
+            else if (score > score1){
+                localStorage.removeItem('score1');
+                localStorage.setItem('score1', score);
+                score3 = localStorage.getItem('score1');                
+            }
             return;
         }            
 
